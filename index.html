@@ -1,0 +1,49 @@
+---
+layout: default
+title: Field Notes
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow">Public blog</p>
+    <h1 id="hero-title">Thoughtful notes, shipped when they are ready.</h1>
+    <p>
+      A lightweight home for writing, updates, and ideas you can keep
+      publishing through GitHub Pages.
+    </p>
+    <a class="button" href="#posts">Read latest</a>
+  </div>
+</section>
+
+<section class="intro" id="about" aria-labelledby="about-title">
+  <div>
+    <p class="eyebrow">About</p>
+    <h2 id="about-title">A place for useful public thinking.</h2>
+  </div>
+  <p>
+    Use this section to tell readers who you are, what you write about, and how
+    often they can expect new posts. Keep it short, clear, and easy to update.
+  </p>
+</section>
+
+<section class="posts-section" id="posts" aria-labelledby="posts-title">
+  <div class="section-heading">
+    <p class="eyebrow">Latest</p>
+    <h2 id="posts-title">Posts</h2>
+  </div>
+
+  <div class="posts-grid">
+    {% for post in site.posts %}
+      <article class="post-card">
+        <div>
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%B %-d, %Y" }}
+          </time>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.description }}</p>
+        </div>
+        <a href="{{ post.url | relative_url }}">Read post</a>
+      </article>
+    {% endfor %}
+  </div>
+</section>
