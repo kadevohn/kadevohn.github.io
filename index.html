@@ -1,121 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>kade.the it is my page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f4f4;
-      color: #222;
-    }
-    header {
-      background: #111;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .post {
-      margin-bottom: 2rem;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 1rem;
-    }
-    .post:last-child {
-      border-bottom: none;
-    }
-    .post h2 {
-      margin: 0 0 0.5rem;
-    }
-    .date {
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 0.5rem;
-    }
-    textarea, input {
-      width: 100%;
-      margin-bottom: 0.5rem;
-      padding: 0.5rem;
-      font-size: 1rem;
-    }
-    button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      background: #111;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #333;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>notebook kade.the</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: "Palatino Linotype", "Book Antiqua", serif;
+    background: #f4ecd8;
+    color: #2e2a23;
+  }
+
+  .page {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 3rem;
+    background: #f9f1dc;
+    box-shadow: 0 0 40px rgba(0,0,0,0.2);
+    border: 1px solid #d8c9a3;
+    position: relative;
+  }
+
+  /* subtle paper texture effect */
+  .page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,0.015),
+      rgba(0,0,0,0.015) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    pointer-events: none;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+    color: #6e6452;
+    margin-bottom: 3rem;
+  }
+
+  .entry {
+    margin-bottom: 3rem;
+  }
+
+  .entry-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .date {
+    font-size: 0.9rem;
+    color: #7a705e;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #cdbf9f;
+    margin: 3rem 0;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #7a705e;
+    margin-top: 2rem;
+  }
+</style>
+
 </head>
+
 <body>
-  <header>
-    <h1>Here lies a place set apart for thoughts of use among the living;
-the channel by which my voice goeth forth unto the world.</h1>
-  </header>
 
-  <div class="container">
-    <h2>New Post</h2>
-    <input id="title" placeholder="Title">
-    <textarea id="content" rows="4" placeholder="What's going on?"></textarea>
-    <button onclick="addPost()">Post</button>
+<div class="page">
 
-    <hr>
+  <h1>kade.the and it is my notes herein</h1>
+  <div class="subtitle">Observations, mechanisms, and fragments of thought</div>
 
-    <div id="posts"></div>
+  <div class="entry">
+    <div class="entry-title">On Beginnings</div>
+    <div class="date">May, Year of Our Work</div>
+    <p>
+      Every work begins crude and without form. The hand doth hesitate and
+      the line waver. The thought resists capture. Yet through repetition,
+      the uncertain mark becomes deliberate. Thus, one must not wait
+      for clarity, but proceed until clarity emerges.
+    </p>
   </div>
 
-  <script>
-    let posts = JSON.parse(localStorage.getItem('posts')) || [];
+  <hr>
 
-    function renderPosts() {
-      const postsDiv = document.getElementById('posts');
-      postsDiv.innerHTML = '';
-      posts.slice().reverse().forEach(post => {
-        const div = document.createElement('div');
-        div.className = 'post';
-        div.innerHTML = `
-          <h2>${post.title}</h2>
-          <div class="date">${post.date}</div>
-          <p>${post.content}</p>
-        `;
-        postsDiv.appendChild(div);
-      });
-    }
+  <div class="entry">
+    <div class="entry-title">On Tools</div>
+    <div class="date">Same Month</div>
+    <p>
+      A tool is an extension of intent. If poorly made, it interrupts thought.
+      Yet when well made, it vanishes entirely. The highest form be not decoration,
+      but obedience—to the hand, to the task, to the material.
+    </p>
+  </div>
 
-    function addPost() {
-      const title = document.getElementById('title').value;
-      const content = document.getElementById('content').value;
-      if (!title || !content) return;
+  <hr>
 
-      const post = {
-        title,
-        content,
-        date: new Date().toLocaleString()
-      };
+  <div class="entry">
+    <div class="entry-title">On Observation</div>
+    <div class="date">Undated</div>
+    <p>
+      Men look and do not see. They pass by structure, proportion, and cause
+      as though blind. To observe is to take possession of the world,
+      piece by piece, until nothing is without explanation.
+    </p>
+  </div>
 
-      posts.push(post);
-      localStorage.setItem('posts', JSON.stringify(posts));
+  <footer>
+    Recorded by hand. Indeed preserved dutifully.
+  </footer>
 
-      document.getElementById('title').value = '';
-      document.getElementById('content').value = '';
+</div>
 
-      renderPosts();
-    }
-
-    renderPosts();
-  </script>
 </body>
 </html>
